@@ -1,0 +1,16 @@
+#spring:
+#  redis:
+#    database: 0
+#    host: 180.76.249.249
+#    password: bingo
+#    jedis:
+#      pool:
+#        max-active: 200
+#        max-wait: -1
+#        max-idle: 8
+#        min-idle: 0
+#    port: 6379
+#    timeout: 100
+
+
+

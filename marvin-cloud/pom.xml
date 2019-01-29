@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>marvin-all</artifactId>
+        <groupId>cn.edu</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>marvin-cloud</artifactId>
+    <version>${parent.version}</version>
+
+    <modules>
+        <module>marvin-cloud-config</module>
+        <module>marvin-cloud-config-client</module>
+        <module>marvin-cloud-feign</module>
+        <module>marvin-cloud-rest-ribbon</module>
+        <module>marvin-cloud-server-7000</module>
+        <module>marvin-cloud-zuul</module>
+        <module>marvin-colud-client-8000</module>
+        <module>marvin-cloud-zipkin-server</module>
+        <module>marvin-cloud-turbine</module>
+        <module>marvin-cloud-gateway</module>
+        <module>marvin-cloud-admin</module>
+    </modules>
+
+</project>

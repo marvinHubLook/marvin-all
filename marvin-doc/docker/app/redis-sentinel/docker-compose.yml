@@ -1,0 +1,15 @@
+master:
+  image: redis:latest
+slave:
+  image: redis:latest
+  command: redis-server --slaveof redis-master 6379
+  links:
+    - master:redis-master
+sentinel:
+  build: sentinel
+  environment:
+    - SENTINEL_DOWN_AFTER=30000
+    - SENTINEL_FAILOVER=180000
+  links:
+    - master:redis-master
+    - slave

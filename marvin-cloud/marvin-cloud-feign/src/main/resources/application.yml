@@ -1,0 +1,45 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: feign-server
+  zipkin:
+    base-url: http://localhost:9411
+#  security:
+#    user:
+#      name: "client"
+#      password: "client"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7000.com:7000/eureka/
+    #是否将自己注册到eureka服务注册中心，默认为true
+    register-with-eureka: true
+    #是否从服务注册中心获取可用的服务清单，默认为true
+    fetch-registry: true
+  instance:
+    health-check-url-path: /actuator/health
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+
+feign:
+  hystrix:
+    enabled: true
+## Hystrix Stream: http://localhost:9001/actuator/hystrix.stream
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: hystrix.stream
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+        #include: hystrix.stream
+

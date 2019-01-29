@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #是否与服务注册于发现组件进行结合，通过 serviceId 转发到具体的服务实例。默认为false，设为true便开启通过服务中心的自动根据 serviceId 创建路由的功能。
+          enabled: true
+      default-filters:
+         - Elapsed=true  # ElapsedGatewayFilterFactory
+#  security:
+#    user:
+#      name: "client"
+#      password: "client"
+server:
+  port: 10000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7000.com:7000/eureka/
+    #是否将自己注册到eureka服务注册中心，默认为true
+    register-with-eureka: true
+    #是否从服务注册中心获取可用的服务清单，默认为true
+    fetch-registry: true
+  instance:
+    health-check-url-path: /actuator/health
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

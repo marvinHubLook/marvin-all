@@ -1,0 +1,6 @@
+#属性文件应用场景标识，配置文件命名是有规则的，规则为应用场景的${spring.application.name}-${spring.cloud.config.profile}.properties
+spring:
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:9004

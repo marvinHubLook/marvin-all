@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    active: 7000
+
+---
+server:
+  port: 7000
+spring:
+  profiles: 7000
+eureka:
+  instance:
+    hostname: eureka7000.com
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+          #单机 defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+          #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址（单机）。
+          defaultZone: http://eureka7001.com:7001/eureka/
+
+---
+server:
+  port: 7001
+spring:
+  profiles: 7001
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+          #单机 defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+          #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址（单机）。
+          defaultZone: http://eureka7000.com:7000/eureka/

@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: service-turbine
+  security:
+    user:
+      name: "client"
+      password: "client"
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+      base-path: /actuator
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7000.com:7000/eureka/
+    #是否将自己注册到eureka服务注册中心，默认为true
+    register-with-eureka: true
+    #是否从服务注册中心获取可用的服务清单，默认为true
+    fetch-registry: true
+  instance:
+    health-check-url-path: /actuator/health
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+turbine:
+  aggregator:
+    cluster-config: default
+  app-config: feign-server,ribbon-server
+  cluster-name-expression: new String("default")
+  combine-host-port: true
+  instanceUrlSuffix:
+    default: actuator/hystrix.stream
+
+management:
+  endpoint:
+    health:
+      show-details: always
+

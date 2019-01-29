@@ -1,0 +1,22 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: ribbon-server
+  zipkin:
+    base-url: http://localhost:9411
+  security:
+    user:
+      name: "client"
+      password: "client"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7000.com:7000/eureka/
+  instance:
+    health-check-url-path: /actuator/health
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+
+

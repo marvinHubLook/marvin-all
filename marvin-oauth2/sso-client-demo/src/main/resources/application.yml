@@ -1,0 +1,22 @@
+---
+spring:
+  thymeleaf:
+    mode: HTML5
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    template-resolver-order: 0
+server:
+  port: 6080
+  servlet:
+    session:
+      timeout: 2d
+own:
+  sso:
+    verify-uri: http://10.0.5.22:7000/sso/verify?access_token={1}
+    access-token-uri: http://10.0.5.22:7000/sso/token?channel=TEST_CLIENT1&redirect_uri=http://192.168.197.130:6080/login
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG

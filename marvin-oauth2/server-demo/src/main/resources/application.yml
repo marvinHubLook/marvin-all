@@ -1,0 +1,58 @@
+#使用哪个环境的配置
+spring:
+  profiles:
+    active: dev
+logging:
+  level: info
+
+
+---
+server:
+  port: 7000
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+
+
+spring:
+  #Druid
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/owner?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&failOverReadOnly=false&useSSL=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+  #Thymeleaf
+  thymeleaf:
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+    template-resolver-order: 0
+    cache: false
+
+  #redis
+  redis:
+    host: 94.191.71.225
+    port: 6379
+    database: 0
+    timeout: 10000ms
+    lettuce:
+      pool:
+       # max-active: 8 连接池最大连接数（使用负值表示没有限制）
+        max-active: 8
+        #最大阻塞等待时间
+        max-wait: 10000ms
+        #最大空闲连接数
+        max-idle: 8
+        min-idle: 0
+      #关闭超时时间
+      shutdown-timeout: 100ms
+
+#mybatis
+mybatis:
+  type-aliases-package: cn.edu.oauth2.mapper
+  mapper-locations: classpath:cn/edu/oauth2/mapper/xml/*.xml
+
+---

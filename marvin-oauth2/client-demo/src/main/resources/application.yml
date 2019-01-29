@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: dev
+
+---
+server:
+  port: 7080
+spring:
+  thymeleaf:
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+    template-resolver-order: 0
+    cache: false
+own:
+  oauth2:
+    resource:
+      userInfoUri: http://127.0.0.1:7000/api/users/getInfo?access_token={1}
+    client-secret: tur2rlFfywR9OOP3fB5ZbsLTnNuNabI3
+    scope: super
+    access-token-uri: http://127.0.0.1:7000/oauth2.0/token?client_id={1}&client_secret={2}&grant_type=authorization_code&code={3}&redirect_uri={4}
+    client-id: 7Ugj6XWmTDpyYp8M8njG3hqx
+    user-authorization-uri: http://127.0.0.1:7000/oauth2.0/authorize?client_id={0}&response_type=code&scope=super&&status={1}&redirect_uri={2}

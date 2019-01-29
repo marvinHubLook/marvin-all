@@ -1,0 +1,11 @@
+server:
+  port: 8088
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false  # 开发阶段务必关闭缓存 (=false)
