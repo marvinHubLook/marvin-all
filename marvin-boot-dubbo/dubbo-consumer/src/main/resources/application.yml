@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: marvin-dubbo
+  dubbo:
+    appname: marvin-dubbo
+    registry: multicast://localhost:1111
+    protocal: dubbo
+    port: 20880

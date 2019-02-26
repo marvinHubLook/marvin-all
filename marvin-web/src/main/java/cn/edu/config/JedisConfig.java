@@ -2,12 +2,8 @@ package cn.edu.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 
 /**
  * @Author : bingo
@@ -29,7 +25,7 @@ public class JedisConfig extends CachingConfigurerSupport{
      * @return
      */
 
-    @Value("${spring.redis.host}")
+   /* @Value("${spring.redis.host}")
     private String host;
 
     @Value("${spring.redis.port}")
@@ -48,9 +44,9 @@ public class JedisConfig extends CachingConfigurerSupport{
     private int minIdle;
 
     @Value("${spring.redis.jedis.pool.max-wait}")
-    private long maxWaitMillis;
+    private long maxWaitMillis;*/
 
-    @Bean
+   /* @Bean
     public JedisPool redisPoolFactory(){
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxIdle(maxIdle);
@@ -61,6 +57,6 @@ public class JedisConfig extends CachingConfigurerSupport{
         logger.info("JedisPool注入成功！");
         logger.info("redis地址：" + host + ":" + port);
         return  jedisPool;
-    }
+    }*/
 
 }

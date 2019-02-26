@@ -13,6 +13,7 @@ public class TwoThreadSync {
             public void run() {
                 while (true) {
                     lock.lock();
+                    System.out.println("-----enter-------");
                     try {
                         Thread.sleep(1000L);
                         System.out.println(Thread.currentThread());
@@ -21,6 +22,7 @@ public class TwoThreadSync {
                         ex.printStackTrace();
                     } finally {
                         lock.unlock();
+                        System.out.println("-----exist-------");
                     }
                 }
             }
@@ -90,7 +92,7 @@ class  TwinsLock implements Lock {
     }
     @Override
     public void lock(){
-        sync.tryAcquireShared(1);
+        sync.acquireShared(1);
     }
     @Override
     public void lockInterruptibly() throws InterruptedException {

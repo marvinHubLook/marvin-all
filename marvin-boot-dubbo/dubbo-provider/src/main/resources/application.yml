@@ -1,0 +1,16 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: dubbo-provier
+  dubbo:
+    appname: marvin-dubbo
+    registry: multicast://localhost:1111
+    server: true
+    protocal: dubbo
+    port: 20880
+
+me:
+  version: 2.0
+

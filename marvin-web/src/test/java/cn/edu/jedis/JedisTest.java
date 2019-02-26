@@ -1,13 +1,9 @@
 package cn.edu.jedis;
 
 import cn.edu.Application;
-import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
 
 /**
  * @Author : bingo
@@ -17,7 +13,7 @@ import redis.clients.jedis.JedisPool;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
 public class JedisTest {
-    @Autowired
+  /*  @Autowired
     private JedisPool jedisPool;
 
     @Test
@@ -27,5 +23,5 @@ public class JedisTest {
         String str = jedis.set("key", "value");
         System.out.printf("---"+str);
         jedis.close();
-    }
+    }*/
 }

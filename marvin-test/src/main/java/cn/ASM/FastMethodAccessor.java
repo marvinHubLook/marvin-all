@@ -1,5 +1,6 @@
 package cn.ASM;
 
+import cn.util.ByteUtils;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.objectweb.asm.*;
@@ -276,7 +277,7 @@ public abstract class FastMethodAccessor {
         cw.visitEnd();
         byte[] bytes = cw.toByteArray();
         /***************/
-//        ByteUtils.outBytes(bytes.clone(),"Service_FastMethodAccessor.class");
+        ByteUtils.outBytes(bytes.clone(),"Service_FastMethodAccessor.class");
         /***************/
         AccessorClassLoader loader = AccessorClassLoader.get(type);
         Class<?> accessorClass = loader.defineClass(accessorClassName, bytes);

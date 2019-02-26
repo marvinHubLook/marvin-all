@@ -17,7 +17,7 @@ public class SetData_API_ASync_Usage implements Watcher {
 
     public static void main(String[] args) throws Exception {
         String path = "/zk-book";
-        zk = new ZooKeeper("47.96.107.63:2181", 5000, new SetData_API_ASync_Usage());
+        zk = new ZooKeeper("47.96.107.63:9181", 5000, new SetData_API_ASync_Usage());
         connectedSemaphore.await();
 
         zk.create(path, "123".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
