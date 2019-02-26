@@ -6,7 +6,7 @@
         <groupId>cn.edu</groupId>
         <artifactId>marvin-boot-dubbo</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.edu</groupId>
     <artifactId>dubbo-consumer</artifactId>

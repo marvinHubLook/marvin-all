@@ -6,11 +6,11 @@
         <groupId>cn.edu</groupId>
         <artifactId>marvin-boot-dubbo</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.edu</groupId>
     <artifactId>dubbo-provider</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${parent.version}</version>
     <name>dubbo-provider</name>
     <description>Demo project for Spring Boot</description>
 

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>cn.edu</groupId>
 	<artifactId>marvin-cloud-admin</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${parent.version}</version>
 	<name>marvin-cloud-admin</name>
 	<description>在 Spring Boot Actuator 的基础上提供简洁的可视化 WEB UI</description>
 
@@ -54,6 +54,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 		</plugins>
 	</build>
 

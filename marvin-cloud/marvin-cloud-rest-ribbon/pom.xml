@@ -15,6 +15,7 @@
         <artifactId>marvin-cloud</artifactId>
         <groupId>cn.edu</groupId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <properties>
