@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: 7000
+    active: 7001
 
 ---
 server:

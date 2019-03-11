@@ -1,2 +1,29 @@
+spring:
+  redis:
+    port: 9379
+    host: 47.96.107.63
+    password: bingo*#
+    timeout: 60s
+  profiles:
+    active: dev1
+
+---
 server:
   port: 8080
+  servlet:
+    session:
+      timeout: 60s
+spring:
+  profiles: dev1
+
+
+---
+server:
+  port: 8088
+  servlet:
+    session:
+      timeout: 60s
+spring:
+  profiles: dev2
+
+

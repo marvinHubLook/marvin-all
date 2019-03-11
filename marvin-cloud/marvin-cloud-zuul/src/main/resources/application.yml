@@ -11,9 +11,9 @@ eureka:
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7000.com:7000/eureka/
   instance:
     health-check-url-path: /actuator/health
-    metadata-map:
-      user.name: ${spring.security.user.name}
-      user.password: ${spring.security.user.password}
+#    metadata-map:
+#      user.name: ${spring.security.user.name}
+#      user.password: ${spring.security.user.password}
 zuul:
   routes:
     api-feign:

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoContrller {
 
     @GetMapping("/index")
-    public String demoIndex(String message){
+    public String demoIndex(String message) throws InterruptedException {
+
+        Thread.sleep(1000);
         return message;
     }
 }

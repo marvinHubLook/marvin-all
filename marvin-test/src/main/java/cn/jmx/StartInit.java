@@ -16,19 +16,15 @@ import java.rmi.registry.LocateRegistry;
  * @create: 2018-12-07 14:27
  **/
 public class StartInit {
-
+    /**
+     * 通过客户端程序进行远程访问
+     */
     public static void main(String[] args) throws MalformedObjectNameException, InterruptedException, NotCompliantMBeanException, InstanceAlreadyExistsException, MBeanRegistrationException {
-       /* MBeanServer server = ManagementFactory.getPlatformMBeanServer();
-        ObjectName helloName = new ObjectName("jmxBean:name=helloService");
-        //create mbean and register mbean
-        server.registerMBean(new HelloService(), helloName);
-        Thread.sleep(60*60*1000);*/
-
-
         MBeanServer server = ManagementFactory.getPlatformMBeanServer();
         ObjectName helloName = new ObjectName("jmxBean:name=helloService");
         //create mbean and register mbean
         server.registerMBean(new HelloService(), helloName);
+
         try
         {
             //这个步骤很重要，注册一个端口，绑定url后用于客户端通过rmi方式连接JMXConnectorServer

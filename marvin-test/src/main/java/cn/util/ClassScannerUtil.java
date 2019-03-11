@@ -24,9 +24,15 @@ import java.util.jar.JarFile;
 @Slf4j
 public class ClassScannerUtil {
     String BASE_PACKAGE="cn.edu";
-    boolean recursive;
+    static boolean recursive=true;
 
-    public Set<Class<?>> scannerBaseClass(String packageName){
+    public static void main(String[] args) {
+        Set<Class<?>> classes = scannerBaseClass("cn.edu");
+        classes.stream().forEach(item -> System.out.println(item.getClass().getName()));
+    }
+
+
+    public static Set<Class<?>> scannerBaseClass(String packageName){
         if(StringUtils.isEmpty(packageName)) return null;
         String packageDirName = packageName.replaceAll("\\.","\\/");
         Enumeration<URL> dirs;

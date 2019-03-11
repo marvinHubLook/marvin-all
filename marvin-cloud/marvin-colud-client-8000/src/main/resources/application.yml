@@ -6,10 +6,6 @@ spring:
      active: 8001
    zipkin:
      base-url: http://localhost:9411
-   security:
-     user:
-       name: "client"
-       password: "client"
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url:
@@ -18,9 +14,9 @@ eureka:
   instance:
     prefer-ip-address: true     #在eureka中下边的访问路径可以显示IP地址
     health-check-url-path: /actuator/health
-    metadata-map:
-      user.name: ${spring.security.user.name}
-      user.password: ${spring.security.user.password}
+#    metadata-map:
+#      user.name: ${spring.security.user.name}
+#      user.password: ${spring.security.user.password}
 
 info: # 在eureka中可以点击info链接，显示有值。链接后的内容就是在这里配置的
   app.name: marvin-eureka-client

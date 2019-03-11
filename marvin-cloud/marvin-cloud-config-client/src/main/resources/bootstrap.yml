@@ -4,3 +4,5 @@ spring:
     config:
       profile: dev
       uri: http://localhost:9004
+      name: config-client
+      label: master

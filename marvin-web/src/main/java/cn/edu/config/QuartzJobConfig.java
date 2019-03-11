@@ -4,7 +4,6 @@ import cn.edu.quartz.MyFirstExerciseJob;
 import org.quartz.Trigger;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
 import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
@@ -18,7 +17,7 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
  * https://www.cnblogs.com/nick-huang/p/8456272.html  定时任务 持久化、集群
  * https://www.cnblogs.com/laoyeye/p/9352002.html  动态定时任务
  **/
-@Configuration
+/*@Configuration     看着烦，先注释*/
 public class QuartzJobConfig {
 
     /**
