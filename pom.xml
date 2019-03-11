@@ -225,7 +225,7 @@
                             <!--<verbose />-->
                             <!-- 解决maven命令编译报错，因为rt.jar 和jce.jar在jre的lib下面，不在jdk的lib下面，
                             导致maven找不到（java7以后会出现这个问题），将这2个jar包拷贝到jdk的lib下面估计也好使-->
-                            <bootclasspath>${java.home}\lib\rt.jar;${java.home}\lib\jce.jar</bootclasspath>
+                            <bootclasspath>${java.home}/lib/rt.jar:${java.home}/lib/jce.jar</bootclasspath>
                         </compilerArguments>
                     </configuration>
                 </plugin>
@@ -244,6 +244,35 @@
                 <plugin>
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>2.8.2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>dockerfile-maven-plugin</artifactId>
+                    <version>${dockerfile-maven-version}</version>
+                    <executions>
+                        <execution>
+                            <id>tag-version</id>
+                            <phase>deploy</phase>
+                            <goals>
+                                <goal>build</goal>
+                                <goal>tag</goal>
+                                <goal>push</goal>
+                            </goals>
+                            <configuration>
+                                <tag>${project.version}</tag>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <repository>${docker.image.prefix}/${project.artifactId}</repository>
+                        <dockerInfoDirectory>${project.build.directory}</dockerInfoDirectory>
+                        <tag>${project.version}</tag>
+                        <!--<skip>true</skip>-->
+                        <buildArgs>
+                            <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                        </buildArgs>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -265,41 +294,14 @@
                     <target>1.8</target>
                     <compilerVersion>1.8</compilerVersion>
                     <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>${dockerfile-maven-version}</version>
-                <configuration>
-                   <!-- <skip>true</skip>-->
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>${dockerfile-maven-version}</version>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>push</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
-                    <tag>${project.version}</tag>
-                    <buildArgs>
-                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
+                    <compilerArgument>-Werror</compilerArgument>
                 </configuration>
             </plugin>
         </plugins>
+        <!--<defaultGoal>compile</defaultGoal>-->
     </build>
 
-    <!--<repositories>
+   <!--<repositories>
         <repository>
             <id>spring-snapshots</id>
             <name>Spring Snapshots</name>
