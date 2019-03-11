@@ -60,14 +60,7 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>${dockerfile-maven-version}</version>
-                <configuration>
-                   <!-- <skip>true</skip>-->
-                </configuration>
-            </plugin>
+
         </plugins>
     </build>
 </project>
